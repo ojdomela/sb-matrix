@@ -45,11 +45,11 @@ export const Matrix = () => {
     })
     const [matrix, setMatrix] = useState<MatrixState | null>(null)
     const canvas = useRef<HTMLCanvasElement>(null)
-    const wrapperSize = useRef<HTMLDivElement>(null)
+    const wrapper = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
         if (!canvas.current) return
-        const style = window.getComputedStyle(wrapperSize.current!)
+        const style = window.getComputedStyle(wrapper.current!)
         const height = Number(style.height.slice(0, style.height.length - 2))
         const width = Number(style.width.slice(0, style.width.length - 2))
         canvas.current.height = height
@@ -65,7 +65,7 @@ export const Matrix = () => {
 
     return (
         <>
-            <Wrapper ref={wrapperSize}>
+            <Wrapper ref={wrapper}>
                 <canvas ref={canvas} style={{display: 'block'}}>
                 </canvas>
                 {matrix && <Controls colors={options.colors} matrix={matrix}/>}
