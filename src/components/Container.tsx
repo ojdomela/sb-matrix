@@ -12,7 +12,7 @@ interface Props {
 const Wrapper = styled.div`
     width: ${(props: Props) => props.dimensions?.width ? props.dimensions.width : "100%"};
     height: ${(props: Props) => props.dimensions?.height ? props.dimensions.height : "100%"};
-    position: absolute;
+    position: relative;
 `;
 
 export const Container = React.forwardRef((props: Props, ref: React.ForwardedRef<HTMLDivElement>) => {

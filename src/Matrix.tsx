@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Container } from './components/Container'
-import Controls from './components/Controls'
+import { Controls } from './components/Controls'
 import MatrixState from './utils'
 
 export type MatrixOptions = {
@@ -79,7 +79,7 @@ export const Matrix = (props: MatrixProps) => {
     useEffect(() => {
         if (!matrix) return
         matrix.clear()
-    },[matrix])
+    }, [matrix])
 
     return (
         <>
