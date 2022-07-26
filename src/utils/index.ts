@@ -136,7 +136,7 @@ export default class MatrixState {
 
     generateColumn() {
         const dropOdds = Math.floor(Math.random() * 100) / 100
-        if (dropOdds >= this.options.dropPercentage) return
+        if (dropOdds >= (this.options.dropPercentage / 100)) return
         const newPosition = this.availableColumnPositions.splice(Math.floor(Math.random() * this.availableColumnPositions.length), 1)[0]
         if (newPosition) {
             this.activeColumns.push(
@@ -194,7 +194,6 @@ export default class MatrixState {
     }
 
     stop() {
-        console.log(this)
         this.clear()
         this.activeColumns = []
         this.availableColumnPositions = getColumnPositions(this.canvas.width, this.options.fontSize)

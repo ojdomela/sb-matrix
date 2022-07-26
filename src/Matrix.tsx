@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
-import Controls from './controls'
+import Controls from './components/Controls'
 import MatrixState from './utils'
 
 const Wrapper = styled.div`
@@ -26,13 +26,30 @@ export type MatrixOptions = {
     }
 }
 
+type Props = {
+    fontSize: number;
+    fontFamily: string;
+    animationSpeed: number;
+    chars: string;
+    dropPercentage: number;
+    charChangeRate: number;
+    opacityChangeRate: number;
+    fadedPercentage: number;
+    hiddenPercentage: number;
+    colors: {
+        primary: string;
+        background: string;
+        flashed: string;
+    }
+}
+
 export const Matrix = () => {
     const [options, setOptions] = useState<MatrixOptions>({
         fontSize: 20,
         fontFamily: 'roboto',
         animationSpeed: 75,
         chars: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}",
-        dropPercentage: 75,
+        dropPercentage: 1,
         charChangeRate: 16,
         opacityChangeRate: 4,
         fadedPercentage: 25,
@@ -50,11 +67,11 @@ export const Matrix = () => {
     useEffect(() => {
         if (!canvas.current) return
         const style = window.getComputedStyle(wrapper.current!)
-        const height = Number(style.height.slice(0, style.height.length - 2))
         const width = Number(style.width.slice(0, style.width.length - 2))
-        canvas.current.height = height
+        const height = Number(style.height.slice(0, style.height.length - 2))
         canvas.current.width = width
-        const ratio = height / width;
+        canvas.current.height = height
+        const ratio = width / height;
         setMatrix(new MatrixState(options, canvas.current, ratio)) 
 
         return () => {
