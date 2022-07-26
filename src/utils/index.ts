@@ -162,7 +162,7 @@ export default class MatrixState {
 
     render(time?: number) {
         if (time) {
-            this.currentIteration = Math.floor(time / this.options.animationSpeed)
+            this.currentIteration = Math.floor(time * this.options.animationSpeed / 1000)
             if (this.previousIteration === this.currentIteration) return
             this.previousIteration = this.currentIteration
             this.clear()

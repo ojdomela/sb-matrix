@@ -13,7 +13,7 @@ export default {
         flashedColor: { control: 'color' },
         fontSize: { control: 'number' },
         fontFamily: { control: false },
-        animationSpeed: { control: { type: 'range', min: 1, max: 100, step: 1 } },
+        animationSpeed: { control: { type: 'range', min: 10, max: 30, step: 1 } },
         chars: { control: 'text' },
         dropPercentage: { control: { type: 'range', min: 1, max: 100, step: 1 } },
         charChangeRate: { control: { type: 'range', min: 0, max: 100, step: 1 } },

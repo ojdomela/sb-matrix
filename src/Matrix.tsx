@@ -43,7 +43,7 @@ export const Matrix = (props: MatrixProps) => {
     const options: MatrixOptions = {
         fontSize: props.fontSize ? props.fontSize : 20,
         fontFamily: props.fontFamily ? props.fontFamily : 'roboto',
-        animationSpeed: props.animationSpeed ? props.animationSpeed : 75,
+        animationSpeed: props.animationSpeed ? props.animationSpeed : 10,
         chars: props.chars ? props.chars : "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}",
         dropPercentage: props.dropPercentage ? props.dropPercentage : 50,
         charChangeRate: props.charChangeRate ? props.charChangeRate : 16,
