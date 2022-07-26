@@ -41,11 +41,11 @@ export type MatrixProps = {
 
 export const Matrix = (props: MatrixProps) => {
     const options: MatrixOptions = {
-        fontSize: props.fontSize ? props.fontSize : 20,
+        fontSize: props.fontSize ? props.fontSize : 18,
         fontFamily: props.fontFamily ? props.fontFamily : 'roboto',
-        animationSpeed: props.animationSpeed ? props.animationSpeed : 10,
+        animationSpeed: props.animationSpeed ? props.animationSpeed : 12,
         chars: props.chars ? props.chars : "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}",
-        dropPercentage: props.dropPercentage ? props.dropPercentage : 50,
+        dropPercentage: props.dropPercentage ? props.dropPercentage : 25,
         charChangeRate: props.charChangeRate ? props.charChangeRate : 16,
         opacityChangeRate: props.opacityChangeRate ? props.opacityChangeRate : 4,
         fadedPercentage: props.fadedPercentage ? props.fadedPercentage : 25,

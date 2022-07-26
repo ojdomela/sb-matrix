@@ -16,7 +16,8 @@ class Letter {
     x: number;
     y: number;
     options: MatrixOptions;
-    opacity: number;
+    hiddenOdds: number;
+    fadedOdds: number;
 
     constructor(canvas: HTMLCanvasElement, position: number, y: number, options: MatrixOptions) {
         this.context = canvas.getContext('2d')!
@@ -24,7 +25,8 @@ class Letter {
         this.x = position
         this.y = y * options.fontSize;
         this.options = options;
-        this.opacity = Math.floor(Math.random() * 100) / 100
+        this.hiddenOdds = Math.floor(Math.random() * 100) / 100
+        this.fadedOdds = Math.floor(Math.random() * 100) / 100
     }
 
     draw() {
@@ -32,10 +34,13 @@ class Letter {
         if (newCharChance < this.options.charChangeRate) this.char = getRandChar(this.options.chars);
 
         const newOpacityChance = Math.floor(Math.random() * 100)
-        if (newOpacityChance < this.options.opacityChangeRate) this.opacity = Math.floor(Math.random() * 100) / 100
+        if (newOpacityChance < this.options.opacityChangeRate) {
+            this.hiddenOdds = Math.floor(Math.random() * 100) / 100
+            this.fadedOdds = Math.floor(Math.random() * 100) / 100
+        }
 
-        this.context.globalAlpha = this.opacity < (this.options.hiddenPercentage / 100) ? 0 :
-            this.opacity < (this.options.fadedPercentage / 100 + this.options.hiddenPercentage / 100) ? 0.5 : 1;
+        this.context.globalAlpha = this.hiddenOdds < (this.options.hiddenPercentage / 100) ? 0 :
+            this.fadedOdds < (this.options.fadedPercentage / 100) ? 0.5 : 1;
         this.context.fillText(this.char, this.x, this.y)
         this.context.globalAlpha = 1;
     }
