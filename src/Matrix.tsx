@@ -76,6 +76,11 @@ export const Matrix = (props: MatrixProps) => {
         }
     }, [props])
 
+    useEffect(() => {
+        if (!matrix) return
+        matrix.clear()
+    },[matrix])
+
     return (
         <>
             <Container ref={container} dimensions={props.dimensions}>
