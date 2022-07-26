@@ -47,4 +47,8 @@ Default.args = {
     opacityChangeRate: 4,
     fadedPercentage: 25,
     hiddenPercentage: 25,
+    dimensions: {
+        width: '100%',
+        height: "100vh"
+    }
 };

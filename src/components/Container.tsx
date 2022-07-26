@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 interface Props {
     dimensions?: {
-        width?: number;
-        height?: number;
+        width?: string;
+        height?: string;
     }
     children?: React.ReactNode;
 }
