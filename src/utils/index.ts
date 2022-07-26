@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { MatrixOptions } from "../Matrix";
 
 const getRandChar = (chars: string): string => chars.split('')[Math.floor(Math.random() * chars.length)];
@@ -9,6 +10,25 @@ const getColumnPositions = (width: number, fontSize: number): number[] => {
     }
     return availableColumnPositions;
 }
+
+export const useWindowSize = () => {
+    const [windowSize, setWindowSize] = useState<{width?: number, height?: number}>({
+      width: undefined,
+      height: undefined,
+    });
+    useEffect(() => {
+      function handleResize() {
+        setWindowSize({
+          width: window.innerWidth,
+          height: window.innerHeight,
+        });
+      }
+      window.addEventListener("resize", handleResize);
+      handleResize();
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
+    return windowSize;
+  }
 
 class Letter {
     context: CanvasRenderingContext2D;

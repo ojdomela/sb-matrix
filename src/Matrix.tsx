@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Container } from './components/Container'
 import {Controls} from './components/Controls'
-import MatrixState from './utils'
+import MatrixState, { useWindowSize } from './utils'
 
 export type MatrixOptions = {
     fontSize: number;
@@ -59,6 +59,7 @@ export const Matrix = (props: MatrixProps) => {
     const [matrix, setMatrix] = useState<MatrixState | null>(null)
     const canvas = useRef<HTMLCanvasElement>(null)
     const container = useRef<HTMLDivElement>(null)
+    const size = useWindowSize();
 
     useEffect(() => {
         if (!canvas.current) return
@@ -74,7 +75,7 @@ export const Matrix = (props: MatrixProps) => {
             if (!canvas.current || !matrix) return
             matrix.stop()
         }
-    }, [props])
+    }, [props, size])
 
     useEffect(() => {
         if (!matrix) return
