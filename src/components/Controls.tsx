@@ -30,14 +30,14 @@ interface ButtonProps {
 }
 
 const Button = styled.button`
-    border-color: ${(props) => props.colors?.primary ? props.colors.primary : "rgb(55,255,55)"};
+    border-color: ${(props) => props.colors?.primary ?? "rgb(55,255,55)"};
     border-radius: .1rem;
     padding: 0.8rem;
     margin: 0.2rem;
     font-size: 1.2rem;
     appearance: none;
-    background: ${(props: ButtonProps) => props.colors?.background ? props.colors.background : "#000"};
-    color: ${(props) => props.colors?.primary ? props.colors.primary : "rgb(55,255,55)"};
+    background: ${(props: ButtonProps) => props.colors?.background ?? "#000"};
+    color: ${(props) => props.colors?.primary ?? "rgb(55,255,55)"};
 `
 
 const Wrapper = styled.div`
@@ -48,7 +48,7 @@ const Wrapper = styled.div`
     border-radius: 5px;
     display: flex;
     opacity: 0.9;
-    background-color: ${(props: WrapperProps) => props.colors?.background ? props.colors.background : "rgb(55,255,55, 0.5)"};
+    background-color: ${(props: WrapperProps) => props.colors?.background ?? "rgb(55,255,55, 0.5)"};
 `
 
 const StartButton = ({ onClick, colors }: ButtonProps) => {

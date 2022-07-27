@@ -41,19 +41,19 @@ export type MatrixProps = {
 
 export const Matrix = (props: MatrixProps) => {
     const options: MatrixOptions = {
-        fontSize: props.fontSize ? props.fontSize : 18,
-        fontFamily: props.fontFamily ? props.fontFamily : 'roboto',
-        animationSpeed: props.animationSpeed ? props.animationSpeed : 12,
-        chars: props.chars ? props.chars : "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}",
-        dropPercentage: props.dropPercentage ? props.dropPercentage : 25,
-        charChangeRate: props.charChangeRate ? props.charChangeRate : 16,
-        opacityChangeRate: props.opacityChangeRate ? props.opacityChangeRate : 4,
-        fadedPercentage: props.fadedPercentage ? props.fadedPercentage : 25,
-        hiddenPercentage: props.hiddenPercentage ? props.hiddenPercentage : 25,
+        fontSize: props.fontSize ?? 18,
+        fontFamily: props.fontFamily ?? 'roboto',
+        animationSpeed: props.animationSpeed ?? 12,
+        chars: props.chars ?? "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}",
+        dropPercentage: props.dropPercentage ?? 25,
+        charChangeRate: props.charChangeRate ?? 0,
+        opacityChangeRate: props.opacityChangeRate ?? 4,
+        fadedPercentage: props.fadedPercentage ?? 25,
+        hiddenPercentage: props.hiddenPercentage ?? 25,
         colors: {
-            background: props.backgroundColor ? props.backgroundColor : '#000',
-            primary: props.primaryColor ? props.primaryColor : "rgb(55,255,55)",
-            flashed: props.flashedColor ? props.flashedColor : "#fff",
+            background: props.backgroundColor ?? '#000',
+            primary: props.primaryColor ?? "rgb(55,255,55)",
+            flashed: props.flashedColor ?? "#fff",
         }
     }
     const [matrix, setMatrix] = useState<MatrixState | null>(null)
