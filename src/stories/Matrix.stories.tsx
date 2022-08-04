@@ -25,6 +25,11 @@ export default {
                 disable: true
             }
         },
+        controls: {
+            table: {
+                disable: true
+            }
+        },
         dimensions: {
             control: false
         }
@@ -35,6 +40,7 @@ const Template: ComponentStory<typeof Matrix> = (args) => <Matrix {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
+    controls: true,
     backgroundColor: '#000',
     primaryColor: "rgb(55,255,55)",
     flashedColor: "#fff",

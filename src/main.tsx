@@ -6,6 +6,6 @@ import GlobalStyle from './styles'
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <GlobalStyle />
-    <Matrix />
+    <Matrix controls />
   </React.StrictMode>
 )
