@@ -21,6 +21,7 @@ export type MatrixOptions = {
 }
 
 export type MatrixProps = {
+    controls?: boolean;
     fontSize?: number;
     fontFamily?: string;
     animationSpeed?: number;
@@ -87,7 +88,7 @@ export const Matrix = (props: MatrixProps) => {
             <Container ref={container} dimensions={props.dimensions}>
                 <canvas ref={canvas} style={{ display: 'block' }}>
                 </canvas>
-                {matrix && <Controls colors={options.colors} matrix={matrix} />}
+                {props.controls && matrix && <Controls colors={options.colors} matrix={matrix} />}
             </Container>
         </>
     )
