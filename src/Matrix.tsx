@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { Container } from './components/Container'
-import {Controls} from './components/Controls'
+import { Controls } from './components/Controls'
 import MatrixState, { useWindowSize } from './utils'
 
 export type MatrixOptions = {
@@ -62,7 +62,7 @@ export const Matrix = (props: MatrixProps) => {
     const container = useRef<HTMLDivElement>(null)
     const size = useWindowSize();
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         if (!canvas.current) return
         const style = window.getComputedStyle(container.current!)
         const width = Number(style.width.slice(0, style.width.length - 2))
@@ -81,7 +81,7 @@ export const Matrix = (props: MatrixProps) => {
     useEffect(() => {
         if (!matrix) return
         matrix.clear()
-    },[matrix])
+    }, [matrix])
 
     return (
         <>
